@@ -277,59 +277,25 @@ a {
 
 .card-preview {
   width: 100%;
-  height: 200px;
+  height: 210px;
   background: #0B0B0E;
   border-radius: var(--radius-sm);
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.card-preview-ui {
-  width: 90%;
-  height: 85%;
-  border-radius: 6px;
-  background: #13131A;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-  transition: var(--transition);
+  overflow: hidden;
+  position: relative;
 }
 
-.card:hover .card-preview-ui {
-  transform: scale(1.03);
+.card-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.4s ease;
 }
 
-.preview-bar {
-  display: flex;
-  gap: 5px;
-}
-
-.preview-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #2B2B36;
-}
-
-.preview-content-skeleton {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  margin-top: 0.25rem;
-}
-
-.skeleton-line {
-  height: 8px;
-  border-radius: 4px;
-  background: #232330;
+.card:hover .card-preview-img {
+  transform: scale(1.04);
 }
 
 .tag-list {
@@ -372,106 +338,39 @@ a {
   color: var(--accent-hover);
 }
 
-/* Team Section */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3.5rem;
-}
-
-.team-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  transition: var(--transition);
-  text-align: left;
-}
-
-.team-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px);
-}
-
-.avatar-wrapper {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), #60A5FA);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: white;
-  margin-bottom: 1.25rem;
-  box-shadow: 0 4px 16px var(--accent-glow);
-}
-
-.role-title {
-  color: var(--accent);
-  font-family: var(--font-heading);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-}
-
-/* Contact Section */
-.contact-wrapper {
+/* Contact Card Simple */
+.contact-card-simple {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: clamp(2rem, 5vw, 4rem);
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  padding: clamp(2.5rem, 6vw, 4.5rem);
+  text-align: left;
 }
 
-@media (min-width: 900px) {
-  .contact-wrapper {
-    grid-template-columns: 1fr 1.2fr;
-  }
-}
-
-.contact-form {
+.email-box-wrapper {
   display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-group label {
-  font-family: var(--font-heading);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--text-main);
-}
-
-.form-input, .form-textarea {
-  width: 100%;
-  background: #09090C;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: #08080B;
   border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 1rem 1.25rem;
-  color: var(--text-main);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  transition: var(--transition);
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
 }
 
-.form-input:focus, .form-textarea:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+.email-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.email-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 /* Footer */
@@ -519,5 +418,15 @@ a {
   .stat-pill-group {
     flex-direction: column;
     gap: 1rem;
+  }
+  .email-box-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .email-actions {
+    width: 100%;
+  }
+  .email-actions .btn {
+    flex: 1;
   }
 }

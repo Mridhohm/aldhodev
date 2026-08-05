@@ -1,16 +1,13 @@
 import { useState } from 'react';
 
 export default function App() {
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const email = "aldo.dev@gmail.com";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setFormSubmitted(true);
-    }, 800);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   const prototypes = [
@@ -19,7 +16,7 @@ export default function App() {
       title: "DVF Plumbing & Gas",
       tags: ["Vite", "React", "Local SEO", "High Conversion"],
       description: "Ellenbrook's premier licensed plumbing & gas website. Engineered for maximum quote conversions and local search dominance.",
-      accent: "#2563EB",
+      image: "/dvf.jpg",
       liveUrl: "https://dvfplumbing.pages.dev/"
     },
     {
@@ -27,7 +24,7 @@ export default function App() {
       title: "Lowtide Plumbing & Gasfitting",
       tags: ["React", "Vanilla CSS", "Mobile First", "0.4s TTI"],
       description: "Sleek service portal for Geelong & Armstrong Creek. Features instant booking components and zero layout shift.",
-      accent: "#1E3A8A",
+      image: "/lowtide.jpg",
       liveUrl: "https://lowtide-plumbing.pages.dev/"
     },
     {
@@ -35,29 +32,8 @@ export default function App() {
       title: "Sheet Hot Roofing",
       tags: ["HTML5", "CSS3", "Micro-Interactions", "Lead Capture"],
       description: "High-impact trade website for Melbourne Colorbond roofing specialists with prominent CTAs and instant quote dispatch.",
-      accent: "#DC2626",
+      image: "/sheethot.jpg",
       liveUrl: "https://sheet-hot-roofing-18n.pages.dev/"
-    }
-  ];
-
-  const team = [
-    {
-      name: "Ridho M.",
-      role: "Lead Frontend Architect",
-      initials: "RM",
-      bio: "Specializes in modern JavaScript frameworks, CSS design systems, and hyper-optimized web performance."
-    },
-    {
-      name: "Alex V.",
-      role: "Principal UI/UX Designer",
-      initials: "AV",
-      bio: "Crafts clean, high-contrast user interfaces with purposeful typography and seamless micro-interactions."
-    },
-    {
-      name: "Sam T.",
-      role: "Backend & Cloud Engineer",
-      initials: "ST",
-      bio: "Configures edge hosting, secure API gateways, automated CI/CD pipelines, and serverless databases."
     }
   ];
 
@@ -72,7 +48,6 @@ export default function App() {
           </a>
           <nav className="nav-links">
             <a href="#work" className="nav-link">Prototype Vault</a>
-            <a href="#about" className="nav-link">Who We Are</a>
             <a href="#contact" className="btn btn-primary" style={{ padding: '0.5rem 1.1rem', fontSize: '0.875rem' }}>
               Let's Talk
             </a>
@@ -90,7 +65,7 @@ export default function App() {
               </div>
               <h1>We Build Digital Experiences That Perform.</h1>
               <p style={{ marginTop: '1.5rem', fontSize: '1.25rem' }}>
-                A collective of developers and designers crafting premium websites, interactive prototypes, and custom digital solutions.
+                Crafting premium websites, interactive prototypes, and custom high-converting digital solutions.
               </p>
               <div className="hero-cta-group">
                 <a href="#work" className="btn btn-primary">
@@ -135,7 +110,7 @@ export default function App() {
               <h2>The Prototype Vault</h2>
             </div>
             <p style={{ margin: 0, maxWidth: '40ch' }}>
-              Explore our live interactive prototypes and production builds. Click any card to launch the live site.
+              Explore our live production builds and mockups. Click any card to launch the live site.
             </p>
           </div>
 
@@ -144,18 +119,11 @@ export default function App() {
               <div key={item.id} className="card">
                 <div>
                   <div className="card-preview">
-                    <div className="card-preview-ui">
-                      <div className="preview-bar">
-                        <div className="preview-dot"></div>
-                        <div className="preview-dot"></div>
-                        <div className="preview-dot"></div>
-                      </div>
-                      <div className="preview-content-skeleton">
-                        <div className="skeleton-line" style={{ width: '65%', background: item.accent }}></div>
-                        <div className="skeleton-line" style={{ width: '90%' }}></div>
-                        <div className="skeleton-line" style={{ width: '45%' }}></div>
-                      </div>
-                    </div>
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="card-preview-img" 
+                    />
                   </div>
 
                   <h3 style={{ color: 'var(--text-main)', marginBottom: '0.5rem' }}>{item.title}</h3>
@@ -187,85 +155,26 @@ export default function App() {
         </div>
       </section>
 
-      {/* The Team / About Us */}
-      <section id="about" className="section" style={{ background: 'rgba(255, 255, 255, 0.015)', borderTop: '1px solid var(--border-color)', borderBottom: '1px solid var(--border-color)' }}>
+      {/* Contact Section - Clean & Direct */}
+      <section id="contact" className="section" style={{ borderTop: '1px solid var(--border-color)' }}>
         <div className="container">
-          <div style={{ maxWidth: '680px' }}>
-            <div className="badge">Studio Culture</div>
-            <h2>Who We Are</h2>
-            <p style={{ marginTop: '1.25rem', fontSize: '1.15rem' }}>
-              We are a tight-knit team of developers and designers who focus on clean code, seamless user experiences, and striking design. We strip away the overhead of traditional agencies to deliver precision-engineered digital products.
+          <div className="contact-card-simple">
+            <div className="badge">Direct Contact</div>
+            <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', marginBottom: '1rem' }}>Let's Talk.</h2>
+            <p style={{ fontSize: '1.2rem', marginBottom: '2.5rem', maxWidth: '50ch' }}>
+              Have a project in mind or need a high-performance website built right? Drop an email directly and let's get it started.
             </p>
-          </div>
 
-          <div className="team-grid">
-            {team.map((member, idx) => (
-              <div key={idx} className="team-card">
-                <div className="avatar-wrapper">{member.initials}</div>
-                <div className="role-title">{member.role}</div>
-                <h3 style={{ marginBottom: '0.75rem' }}>{member.name}</h3>
-                <p style={{ fontSize: '0.925rem' }}>{member.bio}</p>
+            <div className="email-box-wrapper">
+              <span className="email-text">{email}</span>
+              <div className="email-actions">
+                <button onClick={handleCopy} className="btn btn-outline" style={{ padding: '0.65rem 1.25rem', fontSize: '0.9rem' }}>
+                  {copied ? '✓ Copied' : 'Copy Email'}
+                </button>
+                <a href={`mailto:${email}`} className="btn btn-primary" style={{ padding: '0.65rem 1.25rem', fontSize: '0.9rem' }}>
+                  Send Email ➔
+                </a>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact / Let's Talk */}
-      <section id="contact" className="section">
-        <div className="container">
-          <div className="contact-wrapper">
-            <div>
-              <div className="badge">Get in Touch</div>
-              <h2>Ready to build something?</h2>
-              <p style={{ marginTop: '1.25rem', marginBottom: '2rem' }}>
-                Drop us a line and let's discuss your next project. We respond to all inquiries within 24 hours.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.95rem', color: 'var(--text-muted)' }}>
-                <div>📍 Location: Global Remote & Regional Hubs</div>
-                <div>⚡ Availability: Accepting Q3/Q4 Projects</div>
-                <div>✉ Direct Email: <a href="mailto:hello@aldho.dev" style={{ color: 'var(--accent)', fontWeight: 600 }}>hello@aldho.dev</a></div>
-              </div>
-            </div>
-
-            <div>
-              {formSubmitted ? (
-                <div style={{ background: '#09090C', border: '1px solid var(--accent)', padding: '2.5rem', borderRadius: 'var(--radius-sm)', textAlign: 'center' }}>
-                  <div style={{ fontSize: '2.5rem', color: 'var(--accent)', marginBottom: '1rem' }}>✓</div>
-                  <h3>Message Received</h3>
-                  <p style={{ marginTop: '0.5rem', fontSize: '0.95rem' }}>
-                    Thank you! We've received your details and will get back to you shortly.
-                  </p>
-                  <button 
-                    className="btn btn-outline" 
-                    style={{ marginTop: '1.5rem', fontSize: '0.875rem' }}
-                    onClick={() => setFormSubmitted(false)}
-                  >
-                    Send Another Message
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="contact-form">
-                  <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input type="text" id="name" required placeholder="Jane Doe" className="form-input" />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" required placeholder="jane@example.com" className="form-input" />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="project">Tell us about your project</label>
-                    <textarea id="project" rows="4" required placeholder="Describe your goals, requirements, or target launch date..." className="form-textarea" style={{ resize: 'vertical' }}></textarea>
-                  </div>
-
-                  <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }} disabled={submitting}>
-                    {submitting ? 'Sending Message...' : 'Send Message'}
-                  </button>
-                </form>
-              )}
             </div>
           </div>
         </div>
@@ -279,8 +188,7 @@ export default function App() {
           </div>
           <div className="social-links">
             <a href="https://github.com/Mridhohm/aldhodev" target="_blank" rel="noopener noreferrer" className="social-link">GitHub Repo</a>
-            <a href="#" className="social-link">Twitter / X</a>
-            <a href="#" className="social-link">LinkedIn</a>
+            <a href="mailto:aldo.dev@gmail.com" className="social-link">aldo.dev@gmail.com</a>
           </div>
         </div>
       </footer>
