@@ -16,43 +16,27 @@ export default function App() {
   const prototypes = [
     {
       id: 1,
-      title: "Dil's Cafe & Bistro",
-      tags: ["React", "Custom UI", "0.4s Load Time"],
-      description: "An interactive, ultra-fast online ordering prototype built for a high-volume boutique cafe.",
-      accent: "#FF6B00",
-      liveUrl: "#"
+      title: "DVF Plumbing & Gas",
+      tags: ["Vite", "React", "Local SEO", "High Conversion"],
+      description: "Ellenbrook's premier licensed plumbing & gas website. Engineered for maximum quote conversions and local search dominance.",
+      accent: "#2563EB",
+      liveUrl: "https://dvfplumbing.pages.dev/"
     },
     {
       id: 2,
-      title: "DVF Architecture Studio",
-      tags: ["Vite", "WebGL", "60fps Scroll"],
-      description: "A minimal, visual-heavy showcase for a premier architectural firm with responsive image lazy loading.",
-      accent: "#00E5FF",
-      liveUrl: "#"
+      title: "Lowtide Plumbing & Gasfitting",
+      tags: ["React", "Vanilla CSS", "Mobile First", "0.4s TTI"],
+      description: "Sleek service portal for Geelong & Armstrong Creek. Features instant booking components and zero layout shift.",
+      accent: "#1E3A8A",
+      liveUrl: "https://lowtide-plumbing.pages.dev/"
     },
     {
       id: 3,
-      title: "Creative Club Network",
-      tags: ["Next.js", "Design System", "Edge Deploy"],
-      description: "A digital hub for creative agencies featuring live collaboration modules and real-time interactive previews.",
-      accent: "#A855F7",
-      liveUrl: "#"
-    },
-    {
-      id: 4,
-      title: "Lowtide Commercial Plumbing",
-      tags: ["Astro", "Local SEO", "100/100 Vitals"],
-      description: "High-converting service portal built with strict Core Web Vitals optimization and instant lead capture.",
-      accent: "#3B82F6",
-      liveUrl: "#"
-    },
-    {
-      id: 5,
-      title: "Sheet Hot Roofing Co.",
-      tags: ["Vanilla JS", "Micro-Interactions", "Mobile First"],
-      description: "Custom quote estimator and interactive material selector engineered for maximum mobile engagement.",
-      accent: "#EF4444",
-      liveUrl: "#"
+      title: "Sheet Hot Roofing",
+      tags: ["HTML5", "CSS3", "Micro-Interactions", "Lead Capture"],
+      description: "High-impact trade website for Melbourne Colorbond roofing specialists with prominent CTAs and instant quote dispatch.",
+      accent: "#DC2626",
+      liveUrl: "https://sheet-hot-roofing-18n.pages.dev/"
     }
   ];
 
@@ -151,7 +135,7 @@ export default function App() {
               <h2>The Prototype Vault</h2>
             </div>
             <p style={{ margin: 0, maxWidth: '40ch' }}>
-              Explore our live interactive prototypes and production builds. Click any project to launch the live mockup.
+              Explore our live interactive prototypes and production builds. Click any card to launch the live site.
             </p>
           </div>
 
@@ -167,9 +151,9 @@ export default function App() {
                         <div className="preview-dot"></div>
                       </div>
                       <div className="preview-content-skeleton">
-                        <div className="skeleton-line" style={{ width: '60%', background: item.accent }}></div>
-                        <div className="skeleton-line" style={{ width: '85%' }}></div>
-                        <div className="skeleton-line" style={{ width: '40%' }}></div>
+                        <div className="skeleton-line" style={{ width: '65%', background: item.accent }}></div>
+                        <div className="skeleton-line" style={{ width: '90%' }}></div>
+                        <div className="skeleton-line" style={{ width: '45%' }}></div>
                       </div>
                     </div>
                   </div>
@@ -188,8 +172,8 @@ export default function App() {
                   </div>
 
                   <div className="card-footer">
-                    <a href={item.liveUrl} className="card-link">
-                      <span>View Live Mockup</span>
+                    <a href={item.liveUrl} target="_blank" rel="noopener noreferrer" className="card-link">
+                      <span>View Live Site</span>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <line x1="7" y1="17" x2="17" y2="7"></line>
                         <polyline points="7 7 17 7 17 17"></polyline>
