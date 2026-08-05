@@ -68,7 +68,7 @@ export default function App() {
         <div className="container navbar-inner">
           <a href="#" className="brand-logo">
             <span className="dot"></span>
-            DevStudio
+            aldhodev
           </a>
           <nav className="nav-links">
             <a href="#work" className="nav-link">Prototype Vault</a>
@@ -275,7 +275,7 @@ export default function App() {
       <footer className="footer">
         <div className="container footer-inner">
           <div className="footer-text">
-            © {new Date().getFullYear()} DevStudio. Built for high performance & clean delivery.
+            © {new Date().getFullYear()} aldhodev. Built for high performance & clean delivery.
           </div>
           <div className="social-links">
             <a href="https://github.com/Mridhohm/aldhodev" target="_blank" rel="noopener noreferrer" className="social-link">GitHub Repo</a>
