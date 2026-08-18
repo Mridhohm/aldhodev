@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 export default function App() {
   const [copied, setCopied] = useState(false);
-  const email = "aldho.dev@gmail.com";
+  const email = "helixvagabond0330@gmail.com";
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email);
@@ -188,7 +188,7 @@ export default function App() {
           </div>
           <div className="social-links">
             <a href="https://github.com/Mridhohm/aldhodev" target="_blank" rel="noopener noreferrer" className="social-link">GitHub Repo</a>
-            <a href="mailto:aldo.dev@gmail.com" className="social-link">helixvagabond0330@gmail.com</a>
+            <a href="mailto:helixvagabond0330@gmail.com" className="social-link">helixvagabond0330@gmail.com</a>
           </div>
         </div>
       </footer>
